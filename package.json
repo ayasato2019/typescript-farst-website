@@ -1,0 +1,19 @@
+{
+  "name": "typescript-farst-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayasato2019/typescript-farst-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayasato2019/typescript-farst-website/issues"
+  },
+  "homepage": "https://github.com/ayasato2019/typescript-farst-website#readme"
+}
