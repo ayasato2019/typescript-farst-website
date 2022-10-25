@@ -1,0 +1,203 @@
+@charset "utf-8";
+///////////////////////////////////
+//COLOR
+///////////////////////////////////
+$COLOR_BLACK : #262729;
+$COLOR_GRAY_L : #D9D9D9;
+$COLOR_GRAY_D : #43474b;
+$COLOR_NEV : #021D55;
+$COLOR_BULE : #AADBFF;
+$COLOR_YELLOW : #F2C480;
+$COLOR_RED : #ec5860;
+$COLOR_PURPLE : #bd6ee2;
+
+///////////////////////////////////
+// FONT
+///////////////////////////////////
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&family=Nerko+One&display=swap');
+$font-JP : 'M PLUS Rounded 1c', sans-serif;
+$font-EN : 'Nerko One', cursive;
+
+
+///////////////////////////////////
+// Format Brake Point
+///////////////////////////////////
+$bp-tablet : 1024px;
+$bp-sp : 750px;
+
+@mixin breakPoint($media-width) {
+	@if $media-width == sp {
+		@media only screen and (max-width: $bp-sp) {
+			@content;
+		}
+	}
+	@else if $media-width == tablet {
+		@media only screen and (max-width: $bp-tablet) {
+			@content;
+		}
+	}
+	@else if $media-width == main {
+		@media only screen and (max-width: $MAIN_WIDTH) {
+			@content;
+		}
+	}
+	@else if $media-width == onlypc {
+		@media only screen and (min-width: $bp-sp) {
+			@content;
+		}
+	}
+	@else if $media-width == $media-width { //数値入力
+		@media only screen and (max-width: $media-width) {
+		@content;
+		}
+	}
+	}
+	@mixin breakPoint-height($media-height) {
+		@if $media-height == $media-height { //数値入力
+		@media only screen and (max-height: $media-height) {
+		@content;
+		}
+	}
+}
+
+
+/* ========================================
+BASE
+======================================== */
+* ,
+*::before ,
+*::after {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-o-box-sizing: border-box; 
+}	
+// ::selection {
+    // background: $COLOR_PURPLE;
+    // color: $COLOR_BULE;
+// }		
+// ::-moz-selection {
+    // background: $COLOR_PURPLE;
+    // color: $COLOR_BULE;
+// }		
+p {
+	line-height: 1.6;
+	letter-spacing: 0.2em;
+}		
+a {
+	overflow-wrap: break-word;
+	word-break: break-all;
+	transition: all .2s;
+	&:hover {
+		transition: .2s;
+	}		
+}	
+input[type=radio],
+input[type=checkbox]{
+	transition: all .2s;
+	&:hover,&:checked {
+		transition: .2s;
+	}	
+}	
+
+html {
+	font-size: 62.5%;
+}		
+
+.l-body {
+	overflow: hidden;
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	font-family: $font-JP;
+	font-size:1.6em;
+	color: $COLOR_NEV;
+	@include breakPoint(sp){
+		font-size:1.4rem;
+	}//END BreakPoint		
+}	
+
+
+/* ========================================
+u-
+======================================== */
+.u-flexwrap{
+	display: flex;
+	flex-wrap: wrap;
+}
+.u-flexnowrap{
+	display: flex;
+	flex-wrap: nowrap;
+}
+.u-block{
+	display: block;
+}
+.u-inlineBlock{
+	display: inline-block;
+}
+.u-displayNone {
+	display: none;
+}
+.u-marginAuto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+/////////////////////////////////////
+// HEADER
+/////////////////////////////////////
+.l-header {
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 10rem;
+	width: 100%;
+	padding: 0 3rem;
+}
+.l-header.u-flexwrap,
+.p-nav.u-flexwrap {
+	justify-content: space-between;
+	align-items: center;
+}
+.p-brand {
+	max-width: 300px;
+	font-family: $font-EN;
+	font-size: 30px;
+}
+.p-nav a {
+	margin: 0 3rem;
+}
+
+/////////////////////////////////////
+// MAIN
+/////////////////////////////////////
+.l-main {
+	overflow-x: hidden;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	position: absolute;
+	top: 10rem;
+	left: 0;
+	display: block;
+	height: 100%;
+	width: 100%;
+	section {
+		padding: 0 3rem;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+/////////////////////////////////////
+// FOOTER
+/////////////////////////////////////
+.l-footer {
+	position: absolute;
+	bottom: 0;
+	display: block;
+	height: 3rem;
+	padding: 0 3rem;
+	font-size: 1em;
+}
